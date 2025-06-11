@@ -1,0 +1,230 @@
+/* Reset et style de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #222222;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* En-tête */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #1a2a40; /* bleu nuit foncé */
+  padding: 30px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: #f9f9f9;
+  margin: 0 auto;
+}
+
+/* Bouton Accueil */
+header .btn-accueil {
+  position: absolute;
+  left: 20px;
+  background-color: #336699; /* bleu acier */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  transition: background 0.3s ease;
+}
+
+header .btn-accueil:hover {
+  background-color: #254a73; /* bleu plus foncé */
+}
+
+/* Conteneur pour les deux boutons à droite */
+header .apropos-container {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* espace entre les deux boutons */
+}
+
+/* Boutons À propos */
+header .btn-a-propos,
+header .btn-audiovista {
+  background-color: #cc3333; /* rouge discret */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  transition: background 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(204, 51, 51, 0.5);
+}
+
+header .btn-a-propos:hover,
+header .btn-audiovista:hover {
+  background-color: #992222; /* rouge plus foncé */
+}
+
+/* Navigation */
+nav {
+  background-color: #2c3e5c; /* un peu plus clair que le header */
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: inline-flex;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: #f9f9f9;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: #336699; /* bleu acier */
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 2px 5px rgba(51, 102, 153, 0.4);
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #e69500; /* orange discret */
+  color: white;
+  box-shadow: 0 3px 8px rgba(230, 149, 0, 0.6);
+}
+
+/* Contenu principal */
+main {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 30px auto 60px auto;
+  background-color: #ffffff;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation-fill-mode: forwards;
+}
+
+/* Animation d'apparition (slide + fondu) */
+.animate-slide-fade {
+  animation: slideFadeIn 0.6s ease forwards;
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pied de page */
+footer {
+  background-color: #1a2a40; /* même que header */
+  color: #f9f9f9;
+  text-align: center;
+  padding: 25px 10px;
+  font-size: 0.9em;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+}
+
+footer a {
+  color: #336699;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.ecole-layout {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+  align-items: flex-start;
+}
+
+.ecole-tabs {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ecole-tabs button {
+  padding: 10px;
+  background-color: #e2e6ea;
+  border: none;
+  border-left: 5px solid transparent;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ecole-tabs button.active {
+  background-color: #0059b3;
+  color: white;
+  border-left: 5px solid #003366;
+}
+
+.ecole-content {
+  flex: 1;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.content-block {
+  display: none;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.content-block.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
